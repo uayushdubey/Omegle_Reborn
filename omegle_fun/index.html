@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="icon" href="https://logos-world.net/wp-content/uploads/2022/10/Omegle-Symbol.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://logos-world.net/wp-content/uploads/2022/10/Omegle-Symbol.png"
+            alt="Omigle Brasi"
+            width="50"
+            height="30"
+          />
+          Video Chat
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scroll-to-sobre" href="#">Upon</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scroll-to-sobre" href="#">Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="container my-3 text-center" id="conteiner-mensege">
+      <div id="info-messages" class="alert alert-info"></div>
+    </div>
+
+    <div class="container" id="conteiner-formulário">
+      <div class="row">
+        <div class="col-md-6 my-3">
+          <input
+            id="room-input"
+            class="form-control"
+            placeholder="Enter Room ID"
+          />
+        </div>
+        <div class="col-md-6 my-3">
+          <button class="btn btn-primary btn-block" onclick="createRoom()">
+            Create Room
+          </button>
+          <button class="btn btn-secondary btn-block" onclick="joinRoom()">
+            Enter in Room
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="conteiner-call">
+      <div class="row">
+        <div
+          class="col-md-6 my-3 d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="bg-light p-3">
+            <span class="d-block text-center mb-2">STRANGER</span>
+            <video
+              id="remote-video"
+              class="img-fluid"
+              style="width: 300px; height: 400px"
+            ></video>
+          </div>
+        </div>
+        <div
+          class="col-md-6 my-3 d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="bg-light p-3">
+            <span class="d-block text-center mb-2">YOU</span>
+            <video
+              id="local-video"
+              class="img-fluid"
+              style="width: 300px; height: 400px"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3" id="conteiner-encerrar-chamada">
+      <button id="end-call-button" class="btn btn-danger btn-block">
+        End Call
+      </button>
+    </div>
+
+    <div class="container mt-5">
+      <h2 class="mb-4 text-center">User Option</h2>
+
+      <div class="card-deck">
+        <div class="card shadow-lg">
+          <img
+            src="img/emojipng.com-8652588.png"
+            class="card-img-top rounded-circle m-2"
+            alt="Imagem de Maria Silva"
+            style="width: 50px; height: 50px"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-primary">Ayush</h5>
+            <p class="card-text">
+              Amazing experience, the platform makes meetings really Productive.
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 text-muted">
+            <small class="d-inline"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card-deck mt-4">
+        <div class="card shadow-lg">
+          <img
+            src="img/emojipng.com-8652588.png"
+            class="card-img-top rounded-circle m-2"
+            style="width: 50px; height: 50px"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-primary">Saksham</h5>
+            <p class="card-text">
+              It made communication a lot easier, I'm quite satisfied with the efficiency.
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 text-muted">
+            <small class="d-inline"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</small
+            >
+          </div>
+        </div>
+      </div>  
+    </div>
+
+    <div id="sobre" class="container mt-4">
+      <h2 class="mb-4">About Video Chat</h2>
+      <p class="lead">
+        This is online Video Chat platform created just for Entertainment purpose.
+        Use it at your risk &#128516
+      </p>
+      <p class="lead">Features:</p>
+      <ul class="list-group">
+        <li class="list-group-item">Video Chats available</li>
+        <li class="list-group-item">Abstraction of User Identity</li>
+        <li class="list-group-item">
+          Explore differnt interests and topics.
+        </li>
+      </ul>
+    </div>
+
+    <!--  Bootstrap JS Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      document.getElementById("conteiner-formulário").style.display = "block";
+      document.getElementById("conteiner-call").style.display = "none";
+      document.getElementById("conteiner-encerrar-chamada").style.display = "none";
+
+      $(document).ready(function () {
+        $(".scroll-to-sobre").click(function () {
+          $("html, body").animate(
+            {
+              scrollTop: $("#sobre").offset().top,
+            },
+            1000
+          );
+        });
+
+        $(".scroll-to-contatos").click(function () {
+          $("html, body").animate(
+            {
+              scrollTop: $("#contatos").offset().top,
+            },
+            1000
+          );
+        });
+      });
+    </script>
+    <script src="variables.js"></script>
+    <script src="create_room.js"></script>
+    <script src="connect_room.js"></script>
+  </body>
+</html>
