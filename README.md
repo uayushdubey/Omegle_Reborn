@@ -7,3 +7,4 @@ Steps to follow to use it:
 
 
 Share it with your friends and enter in the room, enjoy 😉.
+Note: This project is made for Educational purpose only, Kindly use it for enjoyment and study purpose only.
